@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Discord Register</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body {
+    background-image: url('/css/images/RegisterPage.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #6b818c;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .login-container {
+    margin: 70px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 635px;
+    height: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 66px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    flex-direction: column; /* Mengatur orientasi tata letak ke vertikal */
+    }
+    .login-content {
+    width: calc(50% - 10px);
+    }
+    .qr-code-container {
+    width: calc(50% - 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .qr-code {
+    width: 200px;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #ccc;
+    }
+    .qr-code img {
+    max-width: 100%;
+    max-height: 100%;
+    }
+    .login-container h2 {
+    font-family: Futura-ExtraBold;
+    text-align: center;
+    margin-bottom: 5px;
+    color: #0a3f5e;
+    font-size: 36px;
+    }
+    .login-container p {
+    font-family: Futura URW Medium;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #6b818c;
+    font-size: 26px;
+    }
+    .login-container a {
+    font-family: Futura URW Medium;
+    }
+    .form-control {
+    background-color: #f0f0f0;
+    border: none;
+    margin-bottom: 10px;
+    }
+    .btn-primary {
+    background-color: #0a3f5e;
+    border: none;
+    width: 100%;
+    }
+    .btn-primary:hover {
+    background-color: #0a3f5eeb;
+    }
+    .link-primary {
+    color: #5d5ca8;
+    }
+    .link-primary:hover {
+    color: #5d5ca8c9;
+    }
+    .footer-text {
+    text-align: center; /* Mengatur teks di bagian bawah untuk berada di tengah */
+    margin-top: 10px;
+    width: 100%; /* Memastikan lebar teks sesuai dengan kontainer */
+    }
+    .forgot-password {
+    display: block;
+    text-align: left;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    }
+    .form-label {
+    font-family: Futura URW Medium;
+    font-size: 12px;
+    }
+
+    .date-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .date-container select {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 100px;
+    }
+    .date-container label {
+    margin-right: 10px;
+    font-weight: bold;
+    }
+    .checkbox-container {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    }
+    #termsCheckbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    }
+    #termsText {
+    font-size: 12px;
+    color: #6b818c;
+    font-family: Futura URW Medium;
+    }
+</style>
+</head>
+<body>
+<div class="login-container">
+    <div class="container">
+    <h2>Create an account</h2>
+    <form id="loginForm">
+        <div class="mb-1">
+        <label for="loginEmail" class="form-label">EMAIL *</label>
+        <input type="email" class="form-control" id="loginEmail" required>
+        </div>
+        <div class="mb-1">
+        <label for="displayName" class="form-label">DISPLAY NAME *</label>
+        <input type="text" class="form-control" id="displayName" required>
+        </div>
+        <div class="mb-1">
+        <label for="username" class="form-label">USERNAME *</label>
+        <input type="text" class="form-control" id="username" required>
+        </div>
+        <div class="mb-1">
+        <label for="loginPassword" class="form-label">PASSWORD *</label>
+        <input type="password" class="form-control" id="loginPassword" required>
+        </div>
+        <div class="mb-1">
+        <label for="confirmPassword" class="form-label">CONFIRM PASSWORD *</label>
+        <input type="password" class="form-control" id="confirmPassword" required>
+        </div>
+        <div class="row mb-1">
+        <div class="col-4">
+            <label for="month" class="form-label">Month:</label>
+            <select id="month" class="form-control" name="month">
+            <option value="01">January</option>
+            <option value="02">February</option>
+            <option value="03">March</option>
+            <option value="04">April</option>
+            <option value="05">May</option>
+            <option value="06">June</option>
+            <option value="07">July</option>
+            <option value="08">August</option>
+            <option value="09">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+            </select>
+        </div>
+        <div class="col-4">
+            <label for="day" class="form-label">Day:</label>
+            <select id="day" class="form-control" name="day">
+            <!-- Options will be populated dynamically using JavaScript -->
+            </select>
+        </div>
+        <div class="col-4">
+            <label for="year" class="form-label">Year:</label>
+            <select id="year" class="form-control" name="year">
+            <!-- Options will be populated dynamically using JavaScript -->
+            </select>
+        </div>
+        </div>
+        <div class="mb-3">
+        <div class="checkbox-container">
+            <input type="checkbox" id="termsCheckbox" name="termsCheckbox" required>
+            <label for="termsCheckbox" id="termsText">(Optional) It's okay to send me emails with updates, tips, and special offers. You can opt out at any time.</label>
+        </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Register Now</button>
+        <div class="footer-text">
+        <span>By registering, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+        <br>
+        <a href="login.html" class="link-primary">Already have an account?</a> <!-- Menempatkan link ke akun yang sudah dibilang -->
+        </div>
+    </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Add your registration functionality here
+    alert('Registration functionality not implemented.');
+    });
+
+    // Populate years in the dropdown
+    const yearSelect = document.getElementById('year');
+    const currentYear = new Date().getFullYear();
+    const startYear = currentYear - 100; // Adjust this if you want a different range
+
+    for (let year = currentYear; year >= startYear; year--) {
+    const option = document.createElement('option');
+    option.value = year;
+    option.textContent = year;
+    yearSelect.appendChild(option);
+    }
+
+    // Get references to month, day, and year dropdowns
+    const monthSelect = document.getElementById('month');
+    const daySelect = document.getElementById('day');
+
+    // Function to update days based on selected month and year
+    function updateDays() {
+    const selectedMonth = parseInt(monthSelect.value); // Parse the selected month as integer
+    const selectedYear = parseInt(yearSelect.value); // Parse the selected year as integer
+    const daysInMonth = new Date(selectedYear, selectedMonth, 0).getDate();
+
+    // Clear existing options
+    daySelect.innerHTML = '';
+
+    // Populate days
+    for (let day = 1; day <= daysInMonth; day++) {
+        const option = document.createElement('option');
+        option.value = day < 10 ? '0' + day : day; // Adding leading zero if day is less than 10
+        option.textContent = day;
+        daySelect.appendChild(option);
+    }
+    }
+
+    // Initial population of days based on current month and year
+    updateDays();
+
+    // Event listeners to update days when month or year changes
+    monthSelect.addEventListener('change', updateDays);
+    yearSelect.addEventListener('change', updateDays);
+</script>
+</body>
+</html>
